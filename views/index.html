@@ -1,0 +1,100 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="A cool thing made with Glitch" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script type="module" src="/client.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          Kibibyte Drive
+        </h1>
+      </header>
+
+      <main>
+        <a href="/auth" target="_blank">
+          <button>
+            Authenticate
+          </button></a
+        >
+        <button id="refresh">
+          Refresh
+        </button>
+        <p class="bold">Oh hi,</p>
+        <p>
+          This microservice can bypass Google Drive exceeded usage limit by
+          creating a copy of a file into your drive.
+        </p>
+        <div id="user"></div>
+        <p>How to:</p>
+        <ol>
+          <li>Autheticate by clicking on the above button</li>
+          <li>Once authenticated successfully, click Refresh</li>
+          <li>
+            Refresh will show your drive stats, if you can't see it you need to
+            autheticate again
+          </li>
+          <li>Now you can paste the drive links</li>
+          <li>
+            Automatically when it's done resuts will apear.
+          </li>
+        </ol>
+
+        <!-- Form for submitting the urls-->
+        <form>
+          <input
+            id="url-field"
+            name="url"
+            type="text"
+            maxlength="100"
+            placeholder="Paste drive url here"
+            aria-labelledby="submit-dream"
+            disabled
+          />
+          <button type="submit" id="submit">Submit</button>
+        </form>
+        <!-- Form that retuns the result of the urls-->
+        <div id="result-box">
+          <!--       <div id="result">
+        <input name="url" id="result-url" type="text" disabled />
+        <button type="submit" id="resultSubmit">COPY</button>
+      </div> -->
+        </div>
+        <section class="links">
+          <ol id="links"></ol>
+        </section>
+      </main>
+    </div>
+    <footer>Made by <a href="github.com/purplecandy/">Nadeem Siddique</a></footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>

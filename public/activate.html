@@ -1,0 +1,145 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Account Authorised</title>
+    <meta name="description" content="A cool thing made with Glitch" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      /* styles */
+      /* called by your view template */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: helvetica, arial, sans-serif;
+        margin: 2em;
+      }
+
+      .container {
+        width: 300px;
+        margin: 0 auto;
+        overflow-y: scroll;
+      }
+
+      h1 {
+        font-style: italic;
+        color: #373fff;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      p {
+        max-width: 600px;
+      }
+
+      form {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: cyan;
+        display: inline-block;
+        width: 100%;
+        max-width: 340px;
+        border-radius: 3px;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 100%;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 16px;
+        border-radius: 3px;
+        background-color: lightgrey;
+        border: 1px solid grey;
+        box-shadow: 2px 2px teal;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: yellow;
+      }
+
+      button:active {
+        box-shadow: none;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding-top: 25px;
+        border-top: 1px solid lightgrey;
+        text-align: center;
+      }
+
+      #result {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: cornflowerblue;
+        width: 100%;
+        max-width: 340px;
+        border-radius: 3px;
+      }
+    </style>
+
+    <script type="module">
+      import { Base64 } from "https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.mjs";
+
+      function cache() {
+        const url = window.location.href.split("?code=");
+        const code = unescape(url[url.length - 1]);
+        window.localStorage.removeItem("dtoken");
+        window.localStorage.removeItem("dtokenExp");
+        window.localStorage.setItem("dtoken", code);
+        window.localStorage.setItem(
+          "dtokenExp",
+          (new Date() / 1000 + 3600).toString()
+        );
+      }
+      cache();
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Authorised Successfully
+      </h1>
+      <p>
+        You can close this page now.
+      </p>
+    </header>
+    <!-- <script>
+      cache();
+    </script> -->
+  </body>
+</html>

@@ -12,7 +12,9 @@
   "dependencies": {
     "express": "^4.16.4",
     "googleapis": "^43.0.0",
-    "cookie-parser": "^1.4.4"
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "js-base64": "^3.6.0"
   },
   "engines": {
     "node": "8.x"
